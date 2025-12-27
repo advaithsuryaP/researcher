@@ -1,6 +1,7 @@
 import asyncio
-from searcher import search_agent
 from agents import Runner, gen_trace_id, trace
+
+from searcher import search_agent
 from writer import writer_agent, ReportData
 from planner import planner_agent, WebSearchItem, WebSearchPlan
 
@@ -8,7 +9,7 @@ from planner import planner_agent, WebSearchItem, WebSearchPlan
 class ResearchManager:
     async def run(self, query: str):
         trace_id = gen_trace_id()
-        with trace("Rearch trace", trace_id = trace_id):
+        with trace("Research trace", trace_id = trace_id):
             print(f"View trace: https://platform.openai.com/traces/trace?trace_id={trace_id}")
             yield f"View trace: https://platform.openai.com/traces/trace?trace_id={trace_id}"
             print("Starting research...")
